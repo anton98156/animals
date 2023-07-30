@@ -83,4 +83,3 @@ Done! htop package successfully installed.
 anton@anton-QEMU-Virtual-Machine:~$ sudo dpkg -r htop
 Removing htop package...
 htop package successfully removed.
-
