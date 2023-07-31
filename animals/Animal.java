@@ -13,9 +13,9 @@ public class Animal {
     protected static Animal setAnimal(Animal animal) {
 
         Scanner scanner = getScanner();
-        System.out.println("\nВведите имя животного: ");
+        System.out.println("\nвведите имя животного: ");
         animal.name = scanner.nextLine();
-        System.out.println("Введите команды животного: ");
+        System.out.println("введите команды животного: ");
         animal.commands = scanner.nextLine();
         animal.dateOfBirth = getDate();
     
@@ -23,15 +23,15 @@ public class Animal {
     }
 
     protected void showAnimal(Animal animal) {
-        System.out.println("\nИмя животного: " + animal.name);
-        System.out.println("Команды животного: " + animal.commands);
-        System.out.println("Дата рождения животного: " + animal.dateOfBirth + "\n");
+        System.out.println("\nимя животного: " + animal.name);
+        System.out.println("команды животного: " + animal.commands);
+        System.out.println("дата рождения животного: " + animal.dateOfBirth + "\n");
     }
 
     private static LocalDate getDate() {
 
         Scanner scanner = getScanner();
-        System.out.print("Введите дату в формате 'дд-мм-гггг': ");
+        System.out.print("введите дату в формате 'дд-мм-гггг': ");
         String userInput = scanner.nextLine();
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
