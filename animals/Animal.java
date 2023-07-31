@@ -10,21 +10,19 @@ public class Animal {
     String commands;
     LocalDate dateOfBirth;
 
-    protected static Animal createAnimal() {
+    protected static Animal setAnimal(Animal animal) {
 
-        Animal animal = new Animal();
         Scanner scanner = getScanner();
-
         System.out.println("\nВведите имя животного: ");
         animal.name = scanner.nextLine();
         System.out.println("Введите команды животного: ");
         animal.commands = scanner.nextLine();
         animal.dateOfBirth = getDate();
-        
+    
         return animal;
     }
 
-    protected static void showAnimal(Animal animal) {
+    protected void showAnimal(Animal animal) {
         System.out.println("\nИмя животного: " + animal.name);
         System.out.println("Команды животного: " + animal.commands);
         System.out.println("Дата рождения животного: " + animal.dateOfBirth + "\n");
@@ -42,9 +40,9 @@ public class Animal {
         return date;
     }
 
-    private static Scanner getScanner() {
+    protected static Scanner getScanner() {
         Scanner scanner = new Scanner(System.in);
         return scanner;
     }
-    
+
 }
