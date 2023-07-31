@@ -12,7 +12,7 @@ public class Main {
         HashMap<String, Hamster> hamsters = new HashMap<>();
 
         while (true) {
-
+            
             System.out.println("\nвведите команду: ");
             Scanner scanner = Animal.getScanner();
             String userInput = scanner.nextLine();
@@ -21,21 +21,27 @@ public class Main {
 
             if (userInput.startsWith("добавить")
                                     && split.length == 2) {
-                if (arguments[0].equals("собака")) {
+                try (Counter counter = new Counter()) {
+                    if (arguments[0].equals("собака")) {
                     Dog dog = new Dog();
                     Dog.setAnimal(dog);
                     dogs.put(dog.name, dog);
+                    counter.add();
                 } else if (arguments[0].equals("кот")) {
                     Cat cat = new Cat();
                     Cat.setAnimal(cat);
                     cats.put(cat.name, cat);
+                    counter.add();
                 } else if (arguments[0].equals("хомяк")) {
                     Hamster hamster = new Hamster();
                     Hamster.setAnimal(hamster);
                     hamsters.put(hamster.name, hamster);
+                    counter.add();
                 } else {
-                    System.out.println("введены неправильные данные!");
-                    break;
+                    throw new Exception("данные введены неправильно");
+                }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             } else if (userInput.startsWith("посмотреть") && split.length == 3) {
                 if (arguments[0].equals("собака")) {
